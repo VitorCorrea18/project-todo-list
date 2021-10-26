@@ -11,8 +11,9 @@ body {
 }
 
 header p {
-    font-size: 20px;
+    font-size: 15px;
     color: black;
+    font-weight: lighter;
 }
 
 header h1 {
@@ -23,10 +24,11 @@ header h1 {
     position: relative;
     border: black solid 1px;
     height: 350px;
-    width: 550px;
-    left: 115px;
+    width: 400px ;
+    left: 195px;
     margin: 10px;
     background-color: whitesmoke ;
+    text-align: left;
 }
 
 #texto-tarefa {
@@ -40,4 +42,9 @@ header h1 {
 
 .completed {
     text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.list-item {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
