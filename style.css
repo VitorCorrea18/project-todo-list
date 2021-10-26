@@ -1,0 +1,35 @@
+body {
+    background-color: gray;
+}
+
+#principal {
+    text-align: center;
+    background-color: darkslategray;
+    width: 800px;
+    height: 550px;
+    border-radius: 30px;
+}
+
+header p {
+    font-size: 20px;
+    color: black;
+}
+
+header h1 {
+    text-decoration: underline;
+}
+
+#list-section {
+    position: relative;
+    border: black solid 1px;
+    height: 350px;
+    width: 550px;
+    left: 115px;
+    margin: 10px;
+    background-color: whitesmoke ;
+}
+
+#texto-tarefa {
+    width: 300px;
+    margin: 10px;
+}
