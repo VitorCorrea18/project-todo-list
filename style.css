@@ -33,3 +33,11 @@ header h1 {
     width: 300px;
     margin: 10px;
 }
+
+.selected {
+    background-color: rgb(128,128,128);
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
