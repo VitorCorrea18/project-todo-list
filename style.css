@@ -8,6 +8,8 @@ body {
     width: 800px;
     height: 550px;
     border-radius: 30px;
+    position: relative;
+    left: 20%;
 }
 
 header p {
@@ -47,4 +49,16 @@ header h1 {
 .list-item {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
+}
+
+#mover-cima {
+    position: relative;
+    height: 50px;
+    width: 50px;
+}
+
+#mover-baixo {
+    position: relative;
+    height: 50px;
+    width: 50px;
 }
