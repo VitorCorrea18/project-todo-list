@@ -20,6 +20,7 @@ header p {
 
 header h1 {
     text-decoration: underline;
+    font-size: 40px;
 }
 
 #list-section {
@@ -47,7 +48,7 @@ header h1 {
 }
 
 .list-item {
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
 }
 
