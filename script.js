@@ -1,4 +1,12 @@
-/* eslint-disable complexity */
+const btnAdcionar = document.getElementById('criar-tarefa');
+const btnApaga = document.getElementById('apaga-tudo');
+const btnApagaCompleto = document.getElementById('remover-finalizados');
+const btnSave = document.getElementById('salvar-tarefas');
+const btnApagaSelc = document.getElementById('remover-selecionado');
+const btnUp = document.getElementById('mover-cima');
+const btnDown = document.getElementById('mover-baixo');
+const entry = document.getElementById('texto-tarefa');
+
 function addListItensEvents(listItem) {
   listItem.addEventListener('click', (event) => {
     const listElements = document.querySelectorAll('li');
@@ -121,15 +129,6 @@ function moveDown() {
 
 window.onload = () => {
   recoverSavedList();
-  const btnAdcionar = document.getElementById('criar-tarefa');
-  const btnApaga = document.getElementById('apaga-tudo');
-  const btnApagaCompleto = document.getElementById('remover-finalizados');
-  const btnSave = document.getElementById('salvar-tarefas');
-  const btnApagaSelc = document.getElementById('remover-selecionado');
-  const btnUp = document.getElementById('mover-cima');
-  const btnDown = document.getElementById('mover-baixo');
-  const entry = document.getElementById('texto-tarefa');
-  let selected = document.querySelector('.selected');
   btnAdcionar.addEventListener('click', () => { addListItem(entry.value); entry.value = ''; });
   btnApaga.addEventListener('click', () => { eraseAll(); });
   btnApagaCompleto.addEventListener('click', () => { eraseCompleted(); });
