@@ -1,65 +1,64 @@
 body {
-    background-color: gray;
+  background-color: gray;
 }
 
 #principal {
-    text-align: center;
-    background-color: darkslategray;
-    width: 800px;
-    height: 550px;
-    border-radius: 30px;
-    position: relative;
-    left: 20%;
+  text-align: center;
+  background-color: darkslategray;
+  width: 800px;
+  height: 550px;
+  border-radius: 30px;
+  position: relative;
+  left: 20%;
 }
 
 header p {
-    font-size: 15px;
-    color: black;
-    font-weight: lighter;
+  font-size: 15px;
+  color: black;
 }
 
 header h1 {
-    text-decoration: underline;
-    font-size: 40px;
+  text-decoration: underline;
+  font-size: 40px;
 }
 
 #list-section {
-    position: relative;
-    border: black solid 1px;
-    height: 350px;
-    width: 400px ;
-    left: 195px;
-    margin: 10px;
-    background-color: whitesmoke ;
-    text-align: left;
+  position: relative;
+  border: black solid 1px;
+  height: 350px;
+  width: 400px;
+  left: 195px;
+  margin: 10px;
+  background-color: whitesmoke;
+  text-align: left;
 }
 
 #texto-tarefa {
-    width: 300px;
-    margin: 10px;
+  width: 210px;
+  margin: 10px;
 }
 
 .selected {
-    background-color: rgb(128,128,128);
+  background-color: gray;
 }
 
 .completed {
-    text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 .list-item {
-    font-size: 18px;
-    font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  font-family: Times New Roman, Times, serif;
 }
 
 #mover-cima {
-    position: relative;
-    height: 50px;
-    width: 50px;
+  position: relative;
+  height: 35px;
+  width: 50px;
 }
 
 #mover-baixo {
-    position: relative;
-    height: 50px;
-    width: 50px;
+  position: relative;
+  height: 35px;
+  width: 50px;
 }
