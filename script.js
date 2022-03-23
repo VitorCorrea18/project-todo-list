@@ -6,33 +6,58 @@ const btnApagaSelc = document.getElementById('remover-selecionado');
 const btnUp = document.getElementById('mover-cima');
 const btnDown = document.getElementById('mover-baixo');
 const entry = document.getElementById('texto-tarefa');
+const modal = document.querySelector('.modal');
+const btnModal = document.getElementById('btn-modal');
+
+function activateModal() {
+  modal.classList.add('is-active');
+  btnModal.addEventListener('click', () => deactivateModal());
+}
+
+function deactivateModal() {
+  modal.classList.remove('is-active');
+}
+
+function isAButton (target) {
+  if(btnUp.contains(target) || btnDown.contains(target)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 function addListItensEvents(listItem) {
   listItem.addEventListener('click', (event) => {
-    const listElements = document.querySelectorAll('li');
-    for (let i = 0; i < listElements.length; i += 1) {
-      if (listElements[i].classList.contains('selected')) {
-        listElements[i].classList.remove('selected');
-      }
-    }
+    const selected = document.querySelector('.selected');
+    if (selected) selected.classList.remove('selected');
     event.target.classList.add('selected');
   });
+
   listItem.addEventListener('dblclick', (event) => {
     if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
-    } else {
-      event.target.classList.add('completed');
-    }
+    } else event.target.classList.add('completed');
   });
+  
+  window.addEventListener('click', (e) => {
+    const listSection = document.getElementById('list-section')
+    if (!listSection.contains(e.target) && isAButton(e.target) === false) {
+      const selected = document.querySelector('.selected');
+      if(selected) selected.classList.remove('selected');
+    };
+  })
 }
 
 function addListItem(newTask) {
-  const list = document.getElementById('lista-tarefas');
-  const newListItem = document.createElement('li');
-  newListItem.className = 'list-item';
-  newListItem.innerText = newTask;
-  list.appendChild(newListItem);
-  addListItensEvents(newListItem);
+  if (entry.value !== '') {
+    const list = document.getElementById('lista-tarefas');
+    const newListItem = document.createElement('li');
+    newListItem.className = 'list-item';
+    newListItem.innerText = newTask;
+    list.appendChild(newListItem);
+    addListItensEvents(newListItem);
+    entry.value = '';
+  } else activateModal();
 }
 
 function eraseAll() {
@@ -51,7 +76,7 @@ function eraseCompleted() {
 
 function eraseSelected() {
   const elemtSelec = document.querySelector('.selected');
-  elemtSelec.remove();
+  if(elemtSelec) elemtSelec.remove();
 }
 
 function saveList() {
@@ -122,13 +147,12 @@ function moveDown() {
   }
 }
 
-window.onload = () => {
-  verifyStorage();
-  btnAdcionar.addEventListener('click', () => { addListItem(entry.value); entry.value = ''; });
-  btnApaga.addEventListener('click', () => { eraseAll(); });
-  btnApagaCompleto.addEventListener('click', () => { eraseCompleted(); });
-  btnApagaSelc.addEventListener('click', () => { eraseSelected(); });
-  btnSave.addEventListener('click', () => { saveList(); });
+function addClickEvents() {
+  btnAdcionar.addEventListener('click', () => addListItem(entry.value) );
+  btnApaga.addEventListener('click', () => eraseAll() );
+  btnApagaCompleto.addEventListener('click', () => eraseCompleted() );
+  btnApagaSelc.addEventListener('click', () => eraseSelected() );
+  btnSave.addEventListener('click', () => saveList() );
   btnUp.addEventListener('click', () => {
     const selected = document.querySelector('.selected');
     if (selected !== null && selected.previousElementSibling !== null) {
@@ -141,4 +165,47 @@ window.onload = () => {
       moveDown();
     }
   });
+
+}
+
+function addKeyupEvents() {
+  window.addEventListener('keydown', (e) => { 
+    if (e.code === 'Enter') {
+      addListItem(entry.value);
+    }})
+  window.addEventListener('keydown', (e) => {
+    if (e.code === 'ArrowUp') {
+      const selected = document.querySelector('.selected');
+      if (selected !== null && selected.previousElementSibling !== null) {
+        e.preventDefault()
+        moveUp();
+      }
+    }
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.code === 'ArrowDown') {
+      const selected = document.querySelector('.selected');
+      if (selected !== null && selected.nextElementSibling !== null) {
+        e.preventDefault()
+        moveDown();
+      }
+    }});
+}
+
+function removeSelected(element) {
+  element.classList.remove('selected');
+}
+
+function removeSelectedEventListeners () {
+  const boxList = document.querySelector('#lista-tarefas');
+  boxList.addEventListener('click', () => {
+    const elemtSelec = document.querySelector('.selected');
+    if(elemtSelec !== undefined) removeSelected();
+  })
+}
+
+window.onload = () => {
+  verifyStorage();
+  addClickEvents();
+  addKeyupEvents();
 };

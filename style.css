@@ -1,64 +1,155 @@
-body {
-  background-color: gray;
+
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Oleo+Script&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0%;
+  padding: 0%;
+  background: hsl(219, 70%, 96%);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+}
+
+header {
+  padding: 45px  0px 65px 0px;
+  text-align: center;
+  font-family: 'Oleo Script', cursive;
+  text-decoration: underline;
 }
 
 #principal {
-  text-align: center;
-  background-color: darkslategray;
-  width: 800px;
-  height: 550px;
-  border-radius: 30px;
-  position: relative;
-  left: 20%;
-}
-
-header p {
-  font-size: 15px;
-  color: black;
-}
-
-header h1 {
-  text-decoration: underline;
-  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  justify-self: center;
+  background: #0077b6;
+  width: 60rem;
+  height: 50rem;
+  padding-top: 10px;
+  margin-top: 1rem;
 }
 
 #list-section {
-  position: relative;
-  border: black solid 1px;
-  height: 350px;
-  width: 400px;
-  left: 195px;
-  margin: 10px;
-  background-color: whitesmoke;
-  text-align: left;
+  padding: 25px;
+  width: fit-content;
 }
 
-#texto-tarefa {
-  width: 210px;
-  margin: 10px;
+#lista-tarefas {
+  height: 25rem;
+  overflow: scroll;
+  list-style: circle;
+  width: 50rem;
+  -webkit-user-select: none;
+}
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
 }
 
-.selected {
-  background-color: gray;
-}
+::-webkit-scrollbar-track {
+  border: 1px solid white;
+  border-radius: 10px;
+  }
+  
+::-webkit-scrollbar-thumb {
+  background: #67b99a;  
+  border-radius: 10px;
+  }
+  
+::-webkit-scrollbar-thumb:hover {
+  background: #358f80;  
+  }
 
-.completed {
-  text-decoration: line-through solid black;
-}
+  #texto-tarefa {
+    width: 31rem;
+  }
 
-.list-item {
-  font-size: 18px;
-  font-family: Times New Roman, Times, serif;
-}
+  #input-section {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    flex-direction: row;
+  }
 
-#mover-cima {
-  position: relative;
-  height: 35px;
-  width: 50px;
+  #criar-tarefa {
+    margin-right: 6px;
+    margin-left: 5px;
+  }
+
+  #salvar-tarefas {
+    margin-left: 5px;
+  }
+
+  #button-section {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: space-between;
+    width: 50rem;
+  }
+
+  #up-down {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #mover-cima {
+  margin-right: 5px;
+  width: 5em;
 }
 
 #mover-baixo {
-  position: relative;
-  height: 35px;
-  width: 50px;
+  width: 5em;
+}
+
+#remover-finalizados {
+  margin-right: 8px;
+}
+
+#apaga-tudo {
+  width: 10em;
+}
+
+#info h3 {
+  margin: 0 0 1rem 1.5rem;
+}
+
+.selected {
+  background-color: #aed9e0;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.completed {
+  text-decoration: line-through solid #023E8A;
+  list-style: disc; 
+}
+
+.list-item {
+  font-size: 23px;
+  font-family: 'Courgette', cursive, 'Times New Roman', Times, sans-serif;
+  margin-left: 15px;
+}
+
+.footer {
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#made-bulma {
+  width: 9rem;
+}
+
+a {
+  color: #358f80;
+}
+
+.modal-card-foot {
+  display: flex;
+  justify-content: flex-end;
 }
