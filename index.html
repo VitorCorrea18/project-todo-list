@@ -6,31 +6,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List Project :)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
-<body>
-    <div id="principal">
+<body class="container is-widescreen">
+    <main id="principal" class="section">
         <header>
-            <h1>Minha Lista de Tarefas</h1>
-            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+            <h1 class="title is-1">Lista de Tarefas</h1>
         </header>
-        <div id="list-section">
-            <ol id="lista-tarefas"></ol>
+        <section id="input-section" >
+            <input type="text" id="texto-tarefa" class="input is-success is-medium" placeholder="Digite uma tarefa..." maxlength="100">
+            <button id="criar-tarefa" class="button is-primary is-medium">Adicionar</button>
+            <button class="button is-success is-medium" id="salvar-tarefas">
+                <span class="icon is-small">
+                  <i class="fas fa-check"></i>
+                </span>
+                <span>Salvar Lista</span>
+              </button>
+        </section>
+        <section id="list-section" class="section">
+                <ol id="lista-tarefas" class="box"></ol>
+        </section>
+        <aside id="info">
+            <h3><span class="icon is-small"><i class="fas fa-info-circle"></i></i></span> Clique duas vezes em um item para marcá-lo como completo</h3>
+        </aside>
+        <section id="button-section">
+            <button id="apaga-tudo" class="button is-danger is-active">
+                <span>Limpar lista</span>
+                <span class="icon is-large"><i class="fas fa-times"></i></span>
+            </button>
+            <div id="erase-btns">
+                <button id="remover-finalizados" class="button is-danger is-light">
+                    <span>Completos</span>
+                    <span class="icon is small"><i class="fas fa-backspace"></i></span>
+                </button>
+                <button id="remover-selecionado" class="button is-danger is-light">
+                    <span>Selecionado</span>
+                    <span class="icon"><i class="fas fa-backspace"></i></i></span>
+                </button>
+            </div>
+            <div id="up-down">
+                <button id="mover-cima" class="button is-warning">
+                    <span class="icon is-large"><i class="fas fa-arrow-up"></i></span>
+                </button>
+                <button id="mover-baixo" class="button is-warning">
+                    <span class="icon"><i class="fas fa-arrow-down"></i></span>
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            Desenvolvido por 
+            <strong>
+                <a target="_blank" href="https://www.linkedin.com/in/vitorcorrea18/">Vitor Correa </a>
+            </strong>
+            durante o curso de Desenvolvimento Web na 
+            <strong>
+                <a target="_blank" href="https://www.betrybe.com/"><i class="far fa-copyright"></i>Trybe</a>.
+            </strong>
+          </p>
         </div>
-        <div id="input-section">
-            <button id="criar-tarefa">Adicionar</button>
-            <input type="text" id="texto-tarefa">
-            <button id="salvar-tarefas">Salvar lista</button>
+        <div id="made-bulma">
+            <a target="_blank" href="https://bulma.io"><img src="/imagens/made-with-bulma.png" alt="made-with-bulma"></a>
         </div>
-        <div id="button-section>">
-            <button id="apaga-tudo">Limpar lista</button>
-            <button id="remover-finalizados">Limpar Completos</button>
-            <button id="remover-selecionado">Limpar Selecionado</button>
-            <button id="mover-cima">Up</button>
-            <button id="mover-baixo">Down</button>
+      </footer>
+      <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title icon"><i class="fas fa-exclamation-triangle"></i></p>
+          </header>
+          <section class="modal-card-body">
+            <p>Campo vazio, digite uma tarefa! <i class="far fa-grin-alt"></i> </p>
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-info" id="btn-modal">OK</button>
+          </footer>
         </div>
-    </div>
+      </div>
     <script type='text/javascript' src="script.js"></script>
 </body>
 
